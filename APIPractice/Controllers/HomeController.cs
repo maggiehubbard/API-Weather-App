@@ -42,11 +42,28 @@ namespace APIPractice.Controllers
             try
             {
                 JObject JsonData = JObject.Parse(WeatherData);
+                ViewBag.CurrentTemp = JsonData["currentobservation"]["Weather"];
+                ViewBag.CurrentText = JsonData["currentobservation"]["Temp"];
+                ViewBag.CurrentDate = JsonData["currentobservation"]["Date"];
                 ViewBag.Times = JsonData["time"]["startPeriodName"];
                 ViewBag.Temps = JsonData["data"]["temperature"];
                 ViewBag.Icons = JsonData["data"]["iconLink"];
                 ViewBag.Descs = JsonData["data"]["weather"];
+                ViewBag.Pop = JsonData["data"]["pop"];
                 ViewBag.Texts = JsonData["data"]["text"];
+                ViewBag.Visibility = JsonData["currentobservation"]["Visibility"];
+                ViewBag.Latitude = JsonData["currentobservation"]["latitude"];
+                ViewBag.Timezone = JsonData["currentobservation"]["timezone"];
+                ViewBag.Winds = JsonData["currentobservation"]["Winds"];
+
+                //So that null POPs don't show up empty
+                for (int i = 0; i < ViewBag.Times.Count; i++)
+                {
+                    if (ViewBag.Pop[i] == null)
+                    {
+                        ViewBag.Pop[i] = "0";
+                    }
+                }
             }
             catch (Exception e)
             {

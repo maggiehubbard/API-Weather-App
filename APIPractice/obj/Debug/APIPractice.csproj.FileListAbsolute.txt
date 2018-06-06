@@ -84,8 +84,8 @@ C:\Users\Maggie\source\repos\APIPractice\APIPractice\bin\Microsoft.AI.Dependency
 C:\Users\Maggie\source\repos\APIPractice\APIPractice\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Maggie\source\repos\APIPractice\APIPractice\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Maggie\source\repos\APIPractice\APIPractice\bin\Microsoft.AI.Web.xml
-C:\Users\Maggie\source\repos\APIPractice\APIPractice\obj\Debug\APIPractice.csprojResolveAssemblyReference.cache
 C:\Users\Maggie\source\repos\APIPractice\APIPractice\obj\Debug\APIPractice.csproj.CoreCompileInputs.cache
 C:\Users\Maggie\source\repos\APIPractice\APIPractice\obj\Debug\APIPractice.csproj.CopyComplete
 C:\Users\Maggie\source\repos\APIPractice\APIPractice\obj\Debug\APIPractice.dll
 C:\Users\Maggie\source\repos\APIPractice\APIPractice\obj\Debug\APIPractice.pdb
+C:\Users\Maggie\source\repos\APIPractice\APIPractice\obj\Debug\APIPractice.csprojResolveAssemblyReference.cache

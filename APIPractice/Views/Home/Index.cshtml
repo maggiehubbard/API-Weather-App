@@ -1,16 +1,13 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<link rel="stylesheet" type="text/css" href="~/Content/style.css" />
+
 <div class="jumbotron text-center">
     <h1>Weather Forecast</h1>
     <h4>Detroit, MI</h4>
-    <p>
-        This MVC ASP.NET web application is using <a href="https://www.weather.gov/">Weather.GOV</a>'s
-        <a href="https://forecast.weather.gov/MapClick.php?lat=42.335690&lon=-83.049821&FcstType=json">API</a> to pull
-        Detroit's local weather. Bootstrap classes are used to style this page. If you want to see more of my work,
-        please click here <a href="https://www.github.com/MaggieHubbard"> here </a>.
-    </p>
+    <p>Current weather:  @ViewBag.CurrentText&deg and @ViewBag.CurrentTemp </p>
+    <p>@ViewBag.CurrentDate</p>
+    
 
 </div>
 
@@ -19,6 +16,7 @@
 {
     <div>
         <h2>Error: Status @ViewBag.Error</h2>
+
         @ViewBag.ErrorDescription
         <br />
         @ViewBag.Data
@@ -32,31 +30,44 @@ else
             <tr>
                 <th width="20%">Time</th>
                 <th width="10%">Temp</th>
-                <th width="10%">Forecast</th>
-                <th width="60%">Description</th>
+                <th width="20%">Forecast</th>
+                <th width="15%">P.O.P</th>
+                <th width="25%">Description</th>
             </tr>
 
             @for (int i = 0; i < ViewBag.Times.Count; i++)
             {
+                
                 <tr>
                     <td>@ViewBag.Times[i]</td>
-                    <td>@ViewBag.Temps[i]&deg</td>
+                    <td>@ViewBag.Temps[i] &deg</td>
                     <td>
                         <img src="@ViewBag.Icons[i]"
                              height="43" width="43" />
                     </td>
+                    <td>@ViewBag.Pop[i]%</td>
                     <td>
-                        @ViewBag.Descs[i]
-                    @*<a href="#" onclick="alert('@ViewBag.Texts[i]')">Show more</a>*@
-                    <a href="#" id="link-@i"
-                       onclick="toggleMoreInfo('@i')">More Info</a>
+                        @ViewBag.Descs[i]                    
+                    <input type="submit" id="link-@i"
+                       onclick="toggleMoreInfo('@i')"value="More Info"/>
                     <span id="text-@i" style="display:none">
                         @ViewBag.Texts[i]
                     </span>
                 </td>
             </tr>
         }
-        </table>
+       </table>
+
+        <h3>More information: </h3>
+        <ul>
+
+            <li>Visibility: @ViewBag.Visibility</li>
+            <li>Latitude: @ViewBag.Latitude</li>
+            <li>Timezone: @ViewBag.Timezone</li>
+            <li>Wind Speed: @ViewBag.Winds mph</li>
+
+            
+        </ul>
     </div>
 }
 
@@ -65,10 +76,10 @@ else
         if (document.getElementById('text-' + fieldNumber).style.display
                 == "none") {
             document.getElementById('text-' + fieldNumber).style.display = 'block';
-            document.getElementById('link-' + fieldNumber).innerHTML = 'Hide';
+            document.getElementById('link-' + fieldNumber).value = 'Hide';
         } else {
             document.getElementById('text-' + fieldNumber).style.display = 'none';
-            document.getElementById('link-' + fieldNumber).innerHTML = 'Show more';
+            document.getElementById('link-' + fieldNumber).value = 'Show more';
         }
     }
 </script>
